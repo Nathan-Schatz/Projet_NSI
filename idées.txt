@@ -1,0 +1,94 @@
+
+Projet 1 :
+
+Sujet : Création d'un site web interactif pour la gestion des tâches
+
+Description du projet :
+Le projet consiste à développer un site web interactif permettant aux utilisateurs de gérer leurs tâches quotidiennes. 
+Le site devra inclure des fonctionnalités telles que l'ajout, la suppression, et la mise à jour des tâches, ainsi que la possibilité de les marquer comme terminées. 
+Le site devra être esthétique et facile à naviguer.
+
+Points couverts par le barème :
+
+1. Analyser (3) :
+   - Choix des solutions : Utilisation de listes et de dictionnaires pour stocker les tâches.
+   - Variables : Utilisation de variables explicites pour les tâches et leurs états.
+   - Boucles : Utilisation de boucles pour afficher et gérer les tâches.
+   - Modules complémentaires : Utilisation de JavaScript pour l'interactivité et de CSS pour le style.
+
+2. Structurer (2) :
+   - Noms explicites des variables : Les variables seront nommées de manière claire et descriptive.
+   - Utilisation de fonctions : Création de fonctions pour chaque action (ajout, suppression, etc.).
+   - Modularité : Séparation du code en modules (HTML, CSS, JavaScript).
+   - Commentaires : Ajout de commentaires pour expliquer le code.
+
+3. Développer (3) :
+   - Particularités du langage : Utilisation des fonctionnalités avancées de JavaScript.
+   - Projet dépasse les notions de cours : Intégration d'une base de données simple pour stocker les tâches.
+
+4. Exécution (2) :
+   - Pas de difficulté à exécuter le programme : Le site sera facile à lancer et à utiliser.
+   - Pas de bug flagrant : Le code sera testé pour éviter les erreurs.
+
+5. Utilisation (4) :
+   - Facilité d'utilisation : Interface utilisateur intuitive.
+   - Esthétique satisfaisante : Design moderne et agréable.
+
+6. Travail d'équipe (6) :
+   - Rôles bien définis : Répartition des tâches entre les membres de l'équipe.
+   - Interaction avec le professeur : Communication régulière avec le professeur pour des feedbacks.
+   - Tenue du carnet de bord : Documentation régulière des progrès.
+
+7. Exposé (6) :
+   - Qualité du diaporama : Présentation claire et professionnelle.
+   - Clarté de la solution : Explication simple de l'algorithme et de l'architecture du site.
+   - Dynamique de l'exposé : Présentation interactive et engageante.
+
+
+
+Sujet 2 :
+
+Sujet : Développement d'un jeu de quiz interactif en ligne
+
+Description du projet :
+Le projet consiste à créer un jeu de quiz interactif en ligne où les utilisateurs peuvent répondre à des questions sur différents thèmes (par exemple, la culture générale, les sciences, l'histoire). 
+Le site devra permettre aux utilisateurs de choisir un thème, de répondre aux questions, et de voir leur score à la fin du quiz. Le site devra être interactif, esthétique et facile à naviguer.
+
+Points couverts par le barème :
+
+1. Analyser (3) :
+   - Choix des solutions : Utilisation de listes et de dictionnaires pour stocker les questions et les réponses.
+   - Variables : Utilisation de variables explicites pour les questions, réponses, et scores.
+   - Boucles : Utilisation de boucles pour afficher les questions et gérer les réponses.
+   - Modules complémentaires : Utilisation de JavaScript pour l'interactivité et de CSS pour le style.
+
+2. Structurer (2) :
+   - Noms explicites des variables : Les variables seront nommées de manière claire et descriptive.
+   - Utilisation de fonctions : Création de fonctions pour chaque action (choix du thème, affichage des questions, calcul du score).
+   - Modularité : Séparation du code en modules (HTML, CSS, JavaScript).
+   - Commentaires : Ajout de commentaires pour expliquer le code.
+
+3. Développer (3) :
+   - Particularités du langage : Utilisation des fonctionnalités avancées de JavaScript.
+   - Projet dépasse les notions de cours : Intégration d'un système de suivi des scores et d'un classement des utilisateurs.
+
+4. Exécution (2) :
+   - Pas de difficulté à exécuter le programme : Le site sera facile à lancer et à utiliser.
+   - Pas de bug flagrant : Le code sera testé pour éviter les erreurs.
+
+5. Utilisation (4) :
+   - Facilité d'utilisation : Interface utilisateur intuitive.
+   - Esthétique satisfaisante : Design moderne et agréable.
+
+6. Travail d'équipe (6) :
+   - Rôles bien définis : Répartition des tâches entre les membres de l'équipe.
+   - Interaction avec le professeur : Communication régulière avec le professeur pour des feedbacks.
+   - Tenue du carnet de bord : Documentation régulière des progrès.
+
+7. Exposé (6) :
+   - Qualité du diaporama : Présentation claire et professionnelle.
+   - Clarté de la solution : Explication simple de l'algorithme et de l'architecture du site.
+   - Dynamique de l'exposé : Présentation interactive et engageante.
+
+Ce projet permet également de couvrir les aspects techniques et organisationnels requis par le barème tout en étant réalisable par un groupe de trois élèves. 
+Il offre une opportunité de travailler sur des concepts interactifs et de gestion de données, tout en étant ludique et engageant pour les utilisateurs.
