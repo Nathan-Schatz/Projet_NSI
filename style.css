@@ -11,6 +11,10 @@ header {
     position: relative;
     padding: 10px;
 }
+header h1 {
+    margin: 0;
+
+}
 /*Création du bouton de navigation*/
 .nav-button {
     position: absolute;
@@ -18,12 +22,8 @@ header {
     border: none;
     cursor: pointer;
     background-color: transparent;
-    color: white;
-}
-.nav-button {
     transition: transform 0.3s ease-in-out;
 }
-
 .nav-button.rotated {
     transform: rotate(180deg);
 }
@@ -34,7 +34,7 @@ header {
     width: 200px;
     background-color: #4b4a4a;
     color: white;
-    height: 100vh;
+    height: 50vh;
     position: fixed;
 }
 .navigation.shifted {
@@ -60,7 +60,6 @@ header {
 /*Création du main*/
 main {
     padding: 20px;
-    flex: 1;
     transition: margin-left 0.3s ease-in-out;
 }
 main.shifted {
