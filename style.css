@@ -1,10 +1,28 @@
 *, *::before, *::after {
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    background-color: #333;
 }
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 10px;
+}
+.close-button {
+    position: absolute;
+    left: 10px; 
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    color: white;
+}
+/*Création du menu de navigation*/
 .navigation {
     width: 200px;
-    background-color: #333;
+    background-color: #4b4a4a;
     color: white;
     padding: 20px 0;
     height: 100vh;
@@ -17,25 +35,26 @@
 }
   
 .sidebar a {
-    color: white;
+    background-color: #4b4a4a;
     text-decoration: none;
     padding: 10px 20px;
     transition: background-color 0.3s;
 }
   
 .sidebar a:hover {
-    background-color: #555;
+    background-color: #333;
 }
-  
-.main {
+/*Création du main*/
+main {
     margin-left: 200px;
     padding: 20px;
     flex: 1;
 }
 /*Création du footer*/
 footer {
+
     margin-left: 200px;
     padding: 10px;
-    background-color: #f1f1f1;
+    background-color: #4b4a4a;
     text-align: center;
 }
