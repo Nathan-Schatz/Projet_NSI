@@ -1,24 +1,45 @@
 *,
-::before,
-::after body {
+body {
     box-sizing: border-box;
     display: flex;
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
-
-.sidebar {
-    width: 250px;
-    height: 100vh;
+.navigation {
+    width: 200px;
     background-color: #333;
-    color: #fff;
-    padding: 20px;
+    color: white;
+    padding: 20px 0;
+    height: 100vh;
+    position: fixed;
 }
-
+  
+.sidebar {
+    display: flex;
+    flex-direction: column;
+}
+  
 .sidebar a {
-    color: #fff;
+    color: white;
     text-decoration: none;
-    display: block;
-    margin-bottom: 10px;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+}
+  
+.sidebar a:hover {
+    background-color: #555;
+}
+  
+.main {
+    margin-left: 200px;
+    padding: 20px;
+    flex: 1;
+}
+  
+footer {
+    margin-left: 200px;
+    padding: 10px;
+    background-color: #f1f1f1;
+    text-align: center;
 }
