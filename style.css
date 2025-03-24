@@ -21,6 +21,7 @@ header {
 }
 /*Création du menu de navigation*/
 .navigation {
+    display: none;
     width: 200px;
     background-color: #4b4a4a;
     color: white;
@@ -30,7 +31,6 @@ header {
 }
   /*Création de la side bar*/
 .sidebar {
-    display: flex;
     flex-direction: column;
 }
   
@@ -46,15 +46,15 @@ header {
 }
 /*Création du main*/
 main {
-    margin-left: 200px;
     padding: 20px;
     flex: 1;
 }
 /*Création du footer*/
 footer {
-
-    margin-left: 200px;
-    padding: 10px;
+    padding: 20px;
     background-color: #4b4a4a;
     text-align: center;
+}
+footer p {
+    background-color: #4b4a4a;
 }
