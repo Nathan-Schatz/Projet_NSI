@@ -1,3 +1,12 @@
-function close_button() {
-    document.getElementById("popup").style.display = "none";
+function nav_button() {
+    let main = document.querySelector("main");
+    let footer = document.querySelector("footer");
+    let button = document.querySelector(".nav-button");
+    let nav = document.querySelector("navigation");
+
+
+    main.classList.toggle("shifted");
+    footer.classList.toggle("shifted");
+    button.classList.toggle("rotated");
+    nav.classList.toggle("visible");
 }
