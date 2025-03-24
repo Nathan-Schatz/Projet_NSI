@@ -29,14 +29,17 @@ header {
 }
 /*Création du menu de navigation*/
 .navigation {
-    display: none;
+    transform: translateX(-200px);
+    transition: transform 0.3s ease-in-out;
     width: 200px;
     background-color: #4b4a4a;
     color: white;
     padding: 20px 0;
     height: 100vh;
     position: fixed;
-    transform: translateX(-100%);
+}
+.navigation.shifted {
+    transform: translateX(0);
     transition: transform 0.3s ease-in-out;
 }
   /*Création de la side bar*/
