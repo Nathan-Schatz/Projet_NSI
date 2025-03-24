@@ -1,13 +1,13 @@
 *,
 ::before,
-::after 
-body {
+::after body {
     box-sizing: border-box;
     display: flex;
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
+
 .sidebar {
     width: 250px;
     height: 100vh;
@@ -15,10 +15,10 @@ body {
     color: #fff;
     padding: 20px;
 }
+
 .sidebar a {
     color: #fff;
     text-decoration: none;
     display: block;
     margin-bottom: 10px;
 }
-
