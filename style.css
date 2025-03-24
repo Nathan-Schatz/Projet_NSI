@@ -29,12 +29,11 @@ header {
 }
 /*Création du menu de navigation*/
 .navigation {
-    transform: translateX(-200px);
+    transform: translateX(-100%);
     transition: transform 0.3s ease-in-out;
     width: 200px;
     background-color: #4b4a4a;
     color: white;
-    padding: 20px 0;
     height: 100vh;
     position: fixed;
 }
