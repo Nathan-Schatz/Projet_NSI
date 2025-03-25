@@ -30,4 +30,3 @@ def draw ():
   pyxel.rect(e_x,e_y,4,4,4)
 
 pyxel.run(update,draw)
-
