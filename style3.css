@@ -57,3 +57,24 @@ header h1 {
 .sidebar a:hover {
     background-color: #333;
 }
+/*Création du main*/
+main {
+    padding: 20px;
+    transition: margin-left 0.3s ease-in-out;
+}
+main.shifted {
+    margin-left: 200px; 
+}
+/*Création du footer*/
+footer {
+    padding: 20px;
+    text-align: center;
+    transition: margin-left 0.3s ease-in-out;
+}
+footer.shifted {
+    margin-left: 200px; 
+}
+footer p {
+    background-color: #4b4a4a;
+    transition: background-color 0.3s;
+}
