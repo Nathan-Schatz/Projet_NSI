@@ -68,7 +68,6 @@ main.shifted {
 /*Création du footer*/
 footer {
     padding: 20px;
-    background-color: #4b4a4a;
     text-align: center;
     transition: margin-left 0.3s ease-in-out;
 }
