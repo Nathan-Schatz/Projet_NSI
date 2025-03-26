@@ -42,3 +42,4 @@ def draw ():
 
 pyxel.run(update,draw)
 
+# Pour run le truc que tu voulais c'est la commande : pyxel edit sprites.pyxres
