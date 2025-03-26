@@ -10,3 +10,4 @@ function nav_button() {
     button.classList.toggle("rotated");
     navigation.classList.toggle("shifted");
 }
+
