@@ -30,3 +30,5 @@ def draw ():
   pyxel.rect(e_x,e_y,4,4,4)
 
 pyxel.run(update,draw)
+
+# Pour run le truc que tu voulais c'est la commande : pyxel edit sprites.pyxres
