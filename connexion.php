@@ -9,7 +9,7 @@ if(isset($_POST['envoi'])){
         $user = $recupUser->fetch();
         if ($user && password_verify($_POST['mdp'], $user['mdp'])) {
             $_SESSION['id'] = $user['id'];
-            echo $_SESSION['id'];
+            echo $_SESSION['pseudo'];
         } else{
             echo "Votre mot de passe ou votre email est incorrect";
         }

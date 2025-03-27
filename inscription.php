@@ -18,7 +18,7 @@ if(isset($_POST['envoi'])){
             $_SESSION['mdp'] = $mdp;
             $_SESSION['id'] = $recupUser->fetch()['id'];
         }
-        echo $_SESSION['id'];
+        echo $_SESSION['pseudo'];
      } else{
         echo "Veuillez compléter tous les champs...";    
     }
