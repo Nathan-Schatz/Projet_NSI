@@ -1,6 +1,6 @@
 <?php
 session_start();
-$db = new PDO('mysql:host=localhost;dbname=db-todolist;charset=utf8;','root','');
+$db = new PDO('mysql:host=localhost;dbname=db-projet-nsi;charset=utf8;','root','');
 if(isset($_POST['envoi'])){
     if(!empty($_POST['pseudo']) AND !empty($_POST['mdp'])){
         $pseudo = htmlspecialchars($_POST['pseudo']);
