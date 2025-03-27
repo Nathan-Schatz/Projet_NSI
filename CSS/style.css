@@ -31,7 +31,7 @@ header h1 {
 }
 
 .nav-button.rotated {
-    transform: rotate(180deg);
+    transform: rotate(90deg);
 }
 
 img {
