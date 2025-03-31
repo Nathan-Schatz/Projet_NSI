@@ -1,9 +1,12 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     background-color: #333;
 }
+
 header {
     display: flex;
     align-items: center;
@@ -11,22 +14,31 @@ header {
     position: relative;
     padding: 10px;
 }
+
 header h1 {
     margin: 0;
 
 }
+
 /*Création du bouton de navigation*/
 .nav-button {
     position: absolute;
-    left: 10px; 
+    left: 10px;
     border: none;
     cursor: pointer;
     background-color: transparent;
     transition: transform 0.3s ease-in-out;
 }
+
 .nav-button.rotated {
-    transform: rotate(180deg);
+    transform: rotate(90deg);
 }
+
+img {
+    width: 50px;
+    height: 50px;
+}
+
 /*Création du menu de navigation*/
 .navigation {
     transform: translateX(-100%);
@@ -37,43 +49,50 @@ header h1 {
     position: fixed;
     padding-right: 10px;
 }
+
 .navigation.shifted {
     transform: translateX(0);
     transition: transform 0.3s ease-in-out;
 }
-  /*Création de la side bar*/
+
+/*Création de la side bar*/
 .sidebar {
     display: flex;
     flex-direction: column;
 }
-  
+
 .sidebar a {
     background-color: #4b4a4a;
     text-decoration: none;
     padding: 10px 20px;
     transition: background-color 0.3s;
 }
-  
+
 .sidebar a:hover {
     background-color: #333;
 }
+
 /*Création du main*/
 main {
     padding: 20px;
     transition: margin-left 0.3s ease-in-out;
 }
+
 main.shifted {
-    margin-left: 200px; 
+    margin-left: 200px;
 }
+
 /*Création du footer*/
 footer {
     padding: 20px;
     text-align: center;
     transition: margin-left 0.3s ease-in-out;
 }
+
 footer.shifted {
-    margin-left: 200px; 
+    margin-left: 200px;
 }
+
 footer p {
     background-color: #4b4a4a;
     transition: background-color 0.3s;

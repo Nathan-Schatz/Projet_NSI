@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="../CSS/style.css">
+	<script src="../JS/script.js"></script>
+	<title>Download</title>
+</head>
+<header>
+	<button class="nav-button" onclick="nav_button()"><img src="../Ressources/vaisseau.png"></button>
+	<h1>NEON NEXUS</h1>
+</header>
+
+<body>
+	<nav class="navigation" id="navigation">
+		<div class="sidebar">
+			<a href="../index.html">Accueil</a>
+			<a href="../HTML/Règles.html">Règles</a>
+			<a href="../HTML/Download.html">Download</a>
+			<a href="../HTML/Documentation.html">Documentation</a>
+			<a href="../HTML/Feedback.html">Feedback</a>
+		</div>
+	</nav>
+	<main>
+		<h1 class="main_text">Download</h1>
+		<p class="main_text"> <a href="../jeu.py" download="jeu.py">Download</a> the game.</p>
+	</main>
+	<script>
+		let e_x = 60;
+		let e_y = 60;
+		let tir_liste = [];
+		let ennemi_liste = [];
+
+		function setup() {
+			createCanvas(128, 128);
+			frameRate(60);
+		}
+
+		function e_deplacement(x, y) {
+			if (keyIsDown(RIGHT_ARROW)) {
+				if (x < 120) {
+					x += 1;
+				}
+			}
+			if (keyIsDown(LEFT_ARROW)) {
+				if (x > 0) {
+					x -= 1;
+				}
+			}
+			if (keyIsDown(DOWN_ARROW)) {
+				if (y < 120) {
+					y += 1;
+				}
+			}
+			if (keyIsDown(UP_ARROW)) {
+				if (y > 0) {
+					y -= 1;
+				}
+			}
+			return [x, y];
+		}
+
+		function tirs_creation(x, y, tir_liste) {
+			if (keyWentDown(' ')) { // Espace pour tirer
+				tir_liste.push([x + 1, y - 4]);
+			}
+			return tir_liste;
+		}
+
+		function tir_deplacement(tir_liste) {
+			for (let i = tir_liste.length - 1; i >= 0; i--) {
+				tir_liste[i][1] -= 1;
+				if (tir_liste[i][1] < -8) {
+					tir_liste.splice(i, 1);
+				}
+			}
+			return tir_liste;
+		}
+
+		function ennemi_creation(ennemi_liste) {
+			if (frameCount % 30 === 0) {
+				ennemi_liste.push([random(4, 124), 0]);
+			}
+			return ennemi_liste;
+		}
+
+		function ennemi_mouvement(ennemi_liste) {
+			for (let i = ennemi_liste.length - 1; i >= 0; i--) {
+				ennemi_liste[i][1] += 1;
+				if (ennemi_liste[i][1] > 128) { // Supprime si hors écran
+					ennemi_liste.splice(i, 1);
+				}
+			}
+			return ennemi_liste;
+		}
+
+		function draw() {
+			background(0); // Efface l'écran (équivalent à pyxel.cls)
+
+			// Mise à jour des positions
+			[e_x, e_y] = e_deplacement(e_x, e_y);
+			tir_liste = tirs_creation(e_x, e_y, tir_liste);
+			tir_liste = tir_deplacement(tir_liste);
+			ennemi_liste = ennemi_creation(ennemi_liste);
+			ennemi_liste = ennemi_mouvement(ennemi_liste);
+
+			// Dessin du joueur
+			fill(255, 0, 0); // Couleur rouge (similaire à pyxel 4)
+			rect(e_x, e_y, 4, 4);
+
+			// Dessin des tirs
+			fill(0, 255, 255); // Couleur cyan (similaire à pyxel 11)
+			for (let tir of tir_liste) {
+				rect(tir[0], tir[1], 1, 4);
+			}
+
+			// Dessin des ennemis (ajoutez votre code ici)
+		}
+	</script>
+	<footer>
+		<p>© 2025 - Tous droits réservés</p>
+	</footer>
+</body>
+
+</html>
