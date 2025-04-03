@@ -50,14 +50,14 @@ def ennemi_mouvement (ennemi_liste) :
       ennemi_liste.remove(position)
   return (ennemi_liste)
 
-def suppresion_ennemi ():
+def suppresion_ennemi (point):
     for position in ennemi_liste:
       for tir in tir_liste :
         if position [0] <= tir[0]+1  and tir[1]+8 >= position[1] and position[1]+8 >= tir[1]+8 :
           tir_liste.remove(tir)
           ennemi_liste.remove(position)
           point+=1
-    return(ennemi_liste,tir_liste)
+    return(ennemi_liste,tir_liste,point)
 
 def vaisseau_suppresion (vie):
   for position in ennemi_liste :
@@ -69,7 +69,7 @@ def vaisseau_suppresion (vie):
 
 
 def update () :
-  global e_x ,e_y ,tir_liste,ennemi_liste,vie
+  global e_x ,e_y ,tir_liste,ennemi_liste,vie,point
   e_x,e_y=e_deplacement(e_x,e_y)
   tir_liste=tirs_creation(e_x,e_y,tir_liste)
   tir_liste=tir_deplacement(tir_liste)
@@ -92,7 +92,7 @@ def draw ():
     
     pyxel.text(10,10,"Vie"+str(vie),10)
     
-    pyxel.text(10,10,str(point),10)
+    pyxel.text(10,15 ,"point"+str(point),10)
   else:
     pyxel.text(10,50,"Perdu retourne au lobby",8)
 
