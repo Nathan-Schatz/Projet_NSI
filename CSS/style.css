@@ -24,6 +24,8 @@ header h1 {
     position: absolute;
     left: 10px;
     border: none;
+    margin-bottom: 15px;
+    margin-top: 5px;
     cursor: pointer;
     background-color: transparent;
     transition: transform 0.3s ease-in-out;
