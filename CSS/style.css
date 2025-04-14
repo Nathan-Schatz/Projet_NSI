@@ -74,7 +74,7 @@ img {
 
 /*Création du main*/
 main {
-    padding: 20px;
+    padding-left: 20px;
     transition: margin-left 0.3s ease-in-out;
 }
 
