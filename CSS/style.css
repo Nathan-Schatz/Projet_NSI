@@ -11,8 +11,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    padding: 10px;
+    padding: 1em;
 }
 
 header h1 {
@@ -85,9 +84,11 @@ main.shifted {
 
 /*Création du footer*/
 footer {
-    padding: 20px;
+    padding: 10px;
     text-align: center;
     transition: margin-left 0.3s ease-in-out;
+
+    margin-top: auto;
 }
 
 footer.shifted {
@@ -97,4 +98,14 @@ footer.shifted {
 footer p {
     background-color: #4b4a4a;
     transition: background-color 0.3s;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    margin-top: 4em;
 }
