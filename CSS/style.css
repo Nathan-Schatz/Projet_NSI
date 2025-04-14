@@ -11,13 +11,11 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    padding: 10px;
+    padding: 1em;
 }
 
 header h1 {
     margin: 0;
-
 }
 
 /*Création du bouton de navigation*/
@@ -25,6 +23,8 @@ header h1 {
     position: absolute;
     left: 10px;
     border: none;
+    margin-bottom: 15px;
+    margin-top: 5px;
     cursor: pointer;
     background-color: transparent;
     transition: transform 0.3s ease-in-out;
@@ -74,7 +74,7 @@ img {
 
 /*Création du main*/
 main {
-    padding: 20px;
+    padding-left: 20px;
     transition: margin-left 0.3s ease-in-out;
 }
 
@@ -84,9 +84,11 @@ main.shifted {
 
 /*Création du footer*/
 footer {
-    padding: 20px;
+    padding: 10px;
     text-align: center;
     transition: margin-left 0.3s ease-in-out;
+
+    margin-top: auto;
 }
 
 footer.shifted {
@@ -96,4 +98,14 @@ footer.shifted {
 footer p {
     background-color: #4b4a4a;
     transition: background-color 0.3s;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    margin-top: 4em;
 }
