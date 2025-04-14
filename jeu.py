@@ -100,6 +100,10 @@ def annimation ():
     if explosion[2]==12:
       explosion_liste.remove(explosion)
 
+def point_0(point):
+  point=0
+  return(point)
+
 
   
   
@@ -120,9 +124,11 @@ def update () :
       vie=vaisseau_suppresion(vie)
       vie=depassement(vie)
       annimation()
-      creation_annimation
+      creation_annimation()
     else :
       menu,vie=retourne_debut(menu,vie)
+      point=point_0(point)
+      
 
     
 
