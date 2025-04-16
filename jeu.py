@@ -11,6 +11,7 @@ vie=3
 point=0
 vitesse=50
 menu=0
+compteur=0
 
 pyxel.load("Ressources/vaisseau.pyxres")
 
@@ -29,16 +30,16 @@ def retourne_debut (menu,vie):
 def e_deplacement(x,y):
   if pyxel.btn(pyxel.KEY_RIGHT):
     if (x<120):
-      x=x+1
+      x=x+3
   if pyxel.btn(pyxel.KEY_LEFT):
     if (x>0):
-      x=x-1
+      x=x-3
   if pyxel.btn(pyxel.KEY_DOWN):
     if (y<120):
-      y=y+1
+      y=y+3
   if pyxel.btn(pyxel.KEY_UP):
     if (y>0):
-      y=y-1
+      y=y-3
   return x,y
 
 def tirs_creation( x , y,tir_liste ) : 
@@ -66,7 +67,7 @@ def ennemi_mouvement (ennemi_liste) :
   return (ennemi_liste)
 
 
-def suppresion_ennemi (point):
+def suppresion_ennemi (point,compteur):
     for position in ennemi_liste:
       for tir in tir_liste :
         if position [0] <= tir[0]+4  and position[1] <= tir[1] and position[0]+4>= tir[0] and position[1]+4 >= tir[1]:
@@ -74,7 +75,8 @@ def suppresion_ennemi (point):
           ennemi_liste.remove(position)
           creation_annimation(position[0],position[1])
           point+=1
-    return(point)
+          compteur+=1
+    return(point,compteur)
 
 def vaisseau_suppresion (vie):
   for position in ennemi_liste :
@@ -104,12 +106,19 @@ def point_0(point):
   point=0
   return(point)
 
+def difficulté (vitesse,compteur):
+  if compteur ==20:
+    vitesse-=30
+    compteur=0
+  return(vitesse,compteur)
+
+
 
   
   
 
 def update () :
-  global e_x ,e_y ,tir_liste,ennemi_liste,vie,point,menu,explosion_liste
+  global e_x ,e_y ,tir_liste,ennemi_liste,vie,point,menu,explosion_liste,compteur,vitesse
   if menu==0 :
     menu=debut(menu)
    
@@ -120,11 +129,11 @@ def update () :
       tir_liste=tir_deplacement(tir_liste)
       ennemi_liste=ennemi_creation(ennemi_liste)
       ennemi_liste=ennemi_mouvement(ennemi_liste)
-      point=suppresion_ennemi(point)
+      point,compteur=suppresion_ennemi(point,compteur)
       vie=vaisseau_suppresion(vie)
       vie=depassement(vie)
       annimation()
-      creation_annimation()
+      vitesse,compteur=difficulté(vitesse,compteur)
     else :
       menu,vie=retourne_debut(menu,vie)
       point=point_0(point)
@@ -136,6 +145,7 @@ def update () :
 def draw ():
   pyxel.cls(0)
   if menu==0:
+    pyxel.text(56,10,"neon nexus",10)
     pyxel.text(5,20,"Pour jouer appuie sur TAB",10)
     pyxel.text(5,30,"Sinon appuei sur Echap",10)
   
