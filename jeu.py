@@ -9,7 +9,7 @@ ennemi_liste=[]
 explosion_liste=[]
 vie=3
 point=0
-vitesse=50
+vitesse=1
 menu=0
 compteur=0
 
@@ -55,13 +55,13 @@ def tir_deplacement (tir_liste) :
   return(tir_liste)
   
 def ennemi_creation (ennemi_liste):
-  if (pyxel.frame_count % vitesse == 0):
+  if (pyxel.frame_count % 50 == 0):
     ennemi_liste.append([random.randint(4,120),0])
   return (ennemi_liste)
 
 def ennemi_mouvement (ennemi_liste) :
   for position in ennemi_liste:
-    position[1] +=1
+    position[1] +=vitesse
     if position[1] >128:
       ennemi_liste.remove(position)
   return (ennemi_liste)
@@ -106,9 +106,13 @@ def point_0(point):
   point=0
   return(point)
 
+def vie_normal (vie):
+  vie=3
+  return(vie)
+
 def difficulté (vitesse,compteur):
-  if compteur ==20:
-    vitesse-=30
+  if compteur ==10:
+    vitesse+=0.5
     compteur=0
   return(vitesse,compteur)
 
@@ -121,6 +125,7 @@ def update () :
   global e_x ,e_y ,tir_liste,ennemi_liste,vie,point,menu,explosion_liste,compteur,vitesse
   if menu==0 :
     menu=debut(menu)
+    vie=vie_normal(vie)
    
   else :
     if vie>0:
@@ -145,7 +150,8 @@ def update () :
 def draw ():
   pyxel.cls(0)
   if menu==0:
-    pyxel.text(56,10,"neon nexus",10)
+    pyxel.text(46,10,"neon nexus",10)
+    pyxel.text(47,10,"neon nexus",7)
     pyxel.text(5,20,"Pour jouer appuie sur TAB",10)
     pyxel.text(5,30,"Sinon appuei sur Echap",10)
   
@@ -165,8 +171,8 @@ def draw ():
       for explosion in explosion_liste:
         pyxel.circ(explosion[0],explosion[1],2*(explosion[2]//4), 8+explosion[2]%3)
     else :
-        pyxel.text(40,50,"Retourne au lobby ",10)
-        pyxel.text(40,60,"retourner lobby entre ",10)
+        pyxel.text(20,50,"Retourne au lobby ",10)
+        pyxel.text(20,60,"retourner lobby entre ",10)
 
 
  
