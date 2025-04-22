@@ -5,6 +5,7 @@
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     background-color: #333;
+    text-align: center;
 }
 
 
@@ -19,6 +20,8 @@ header h1 {
     margin: 0;
 }
 
+
+/* Jouer */
 .h3_Jouer {
     margin-left: 1em;
 }
@@ -26,6 +29,21 @@ header h1 {
 .text_Jouer {
     margin-left: 1.5em;
 }
+
+.Jouer_list {
+    margin: 3em;
+    list-style-image: url();
+
+}
+
+/*Régles*/
+.Regles_list {
+    margin: 3em;
+    list-style-image: url();
+}
+
+
+
 
 /*Création du bouton de navigation*/
 .nav-button {
