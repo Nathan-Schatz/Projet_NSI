@@ -32,14 +32,17 @@ header h1 {
 
 .Jouer_list {
     margin: 3em;
-    list-style-image: url();
+    list-style-image: url("../Ressources/point.png");
+    padding-inline-start: 1ch;
+
 
 }
 
 /*Régles*/
 .Regles_list {
     margin: 3em;
-    list-style-image: url();
+    list-style-image: url("../Ressources/point.png");
+    padding-inline-start: 1ch;
 }
 
 
