@@ -34,8 +34,6 @@ header h1 {
     margin: 3em;
     list-style-image: url("../Ressources/point.png");
     padding-inline-start: 1ch;
-
-
 }
 
 /*Régles*/
@@ -44,9 +42,6 @@ header h1 {
     list-style-image: url("../Ressources/point.png");
     padding-inline-start: 1ch;
 }
-
-
-
 
 /*Création du bouton de navigation*/
 .nav-button {
