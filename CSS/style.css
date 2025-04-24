@@ -63,6 +63,12 @@ header h1 {
     margin-right: 20%;
 }
 
+/* Telecharger */
+
+.text_Tel {
+    font-size: 17px;
+}
+
 /*Création du bouton de navigation*/
 .nav-button {
     position: absolute;
