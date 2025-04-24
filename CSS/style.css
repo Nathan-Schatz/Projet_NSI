@@ -25,6 +25,10 @@ header h1 {
     font-size: 17px;
 }
 
+.txt1_index {
+    font-weight: bold;
+}
+
 /* Jouer */
 .h3_Jouer {
     margin-left: 1em;
