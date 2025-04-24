@@ -12,6 +12,7 @@ point=0
 vitesse=1
 menu=0
 compteur=0
+temps=0
 
 pyxel.load("Ressources/vaisseau.pyxres")
 
@@ -122,10 +123,11 @@ def difficulté (vitesse,compteur):
   
 
 def update () :
-  global e_x ,e_y ,tir_liste,ennemi_liste,vie,point,menu,explosion_liste,compteur,vitesse
+  global e_x ,e_y ,tir_liste,ennemi_liste,vie,point,menu,explosion_liste,compteur,vitesse,temps
   if menu==0 :
     menu=debut(menu)
     vie=vie_normal(vie)
+    temps=0
    
   else :
     if vie>0:
@@ -139,6 +141,7 @@ def update () :
       vie=depassement(vie)
       annimation()
       vitesse,compteur=difficulté(vitesse,compteur)
+      temps = pyxel.frame_count//30
     else :
       menu,vie=retourne_debut(menu,vie)
       point=point_0(point)
@@ -166,8 +169,11 @@ def draw ():
         pyxel.blt(position[0],position[1],2,20,7,7, 7)
       
       pyxel.text(10,10,"Vie "+str(vie),10)
-      
-      pyxel.text(10,15 ,"point "+str(point),10)
+
+      pyxel.text(10,16 ,"point "+str(point),10)
+
+      pyxel.text(10,3,"Temps"+str(temps) + "s", 10)
+
       for explosion in explosion_liste:
         pyxel.circ(explosion[0],explosion[1],2*(explosion[2]//4), 8+explosion[2]%3)
     else :
