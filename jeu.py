@@ -7,6 +7,8 @@ e_y=60
 tir_liste =[]
 ennemi_liste=[]
 explosion_liste=[]
+boost_explosion_liste=[]
+boost_liste=[]
 vie=3
 point=0
 vitesse=1
@@ -86,12 +88,7 @@ def vaisseau_suppresion (vie):
       vie-=1
   return (vie)
 
-def depassement (vie):
-  for position in ennemi_liste :
-    if position[1]>=128 :
-      ennemi_liste.remove(position)
-      vie-=1
-  return(vie)
+
 
 def creation_annimation (x,y):
   explosion_liste.append([x,y,0])
@@ -116,13 +113,45 @@ def difficulté (vitesse,compteur):
     compteur=0
   return(vitesse,compteur)
 
+def boost_création(boost_liste):
+  if (pyxel.frame_count % random.randint(100,1000) == 0):
+    boost_liste.append([random.randint(4,120),0])
+  return(boost_liste)
+
+def boost_mouvement (boost_liste) :
+  for place in boost_liste:
+    place[1] +=1
+    if place[1] >128:
+      boost_liste.remove(place)
+  return (boost_liste)
+
+def boost_supression (vie):
+  for place in boost_liste :
+    if place[0]-4 <= e_x+4 and place[1] <= e_y+4 and place[0]+4 >= e_x-4 and place[1]+4 >= e_y:
+      boost_liste.remove(place)
+      creation_annimation_boost(place[0],place[1])
+      vie+=1
+  return (vie)
+
+def creation_annimation_boost (x,y):
+  boost_explosion_liste.append([x,y,0])
+
+def annimation_boost ():
+  for explosion_boost in boost_explosion_liste :
+    explosion_boost[2]+=2
+    if explosion_boost[2]==12:
+      boost_explosion_liste.remove(explosion_boost)
+
+    
+
+
 
 
   
   
 
 def update () :
-  global e_x ,e_y ,tir_liste,ennemi_liste,vie,point,menu,explosion_liste,compteur,vitesse
+  global e_x ,e_y ,tir_liste,ennemi_liste,vie,point,menu,explosion_liste,compteur,vitesse,boost_liste,boost_explosion_liste
   if menu==0 :
     menu=debut(menu)
     vie=vie_normal(vie)
@@ -136,9 +165,13 @@ def update () :
       ennemi_liste=ennemi_mouvement(ennemi_liste)
       point,compteur=suppresion_ennemi(point,compteur)
       vie=vaisseau_suppresion(vie)
-      vie=depassement(vie)
+      
       annimation()
       vitesse,compteur=difficulté(vitesse,compteur)
+      boost_liste=boost_création(boost_liste)
+      boost_liste=boost_mouvement(boost_liste)
+      vie=boost_supression(vie)
+      annimation_boost()
     else :
       menu,vie=retourne_debut(menu,vie)
       point=point_0(point)
@@ -164,12 +197,16 @@ def draw ():
 
       for position in ennemi_liste :
         pyxel.blt(position[0],position[1],2,20,7,7, 7)
+      for place in boost_liste :
+        pyxel.rect(place[0],place[1],4,4,10)
       
       pyxel.text(10,10,"Vie "+str(vie),10)
       
       pyxel.text(10,15 ,"point "+str(point),10)
       for explosion in explosion_liste:
         pyxel.circ(explosion[0],explosion[1],2*(explosion[2]//4), 8+explosion[2]%3)
+      for explosion_boost in boost_explosion_liste :
+        pyxel.circ(explosion_boost[0],explosion_boost[1],2*(explosion_boost[2]//4), 11+explosion_boost[2]%2)
     else :
         pyxel.text(20,50,"Retourne au lobby",10)
         pyxel.text(20,60,"Retourner lobby Tab",10)
