@@ -20,20 +20,29 @@ header h1 {
     margin: 0;
 }
 
+/* index */
+
+.text_index {
+    font-size: 17px;
+}
 
 /* Jouer */
 .h3_Jouer {
     margin-left: 1em;
+    margin-top: 2em;
 }
 
 .text_Jouer {
     margin-left: 1.5em;
+    font-size: 17px;
 }
 
 .Jouer_list {
-    margin: 3em;
+    margin-left: 3em;
+    margin-right: 3em;
     list-style-image: url("../Ressources/point.png");
     padding-inline: 25%;
+    font-size: large;
 }
 
 .div_Jouer {
@@ -46,7 +55,7 @@ header h1 {
     margin: 3em;
     list-style-image: url("../Ressources/point.png");
     padding-inline: 20%;
-    text-size-adjust: 2em;
+    font-size: large;
 }
 
 .div_Regles {
