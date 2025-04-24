@@ -13,6 +13,9 @@ vitesse=1
 menu=0
 compteur=0
 temps=0
+scores={}
+partie_numero=1
+score_ennregistre= False
 
 pyxel.load("Ressources/vaisseau.pyxres")
 
@@ -26,7 +29,10 @@ def retourne_debut (menu,vie):
     menu=0
     vie=3
   return(menu,vie)
-               
+
+def enregistrer_score(scores, partie_numero, point, temps):
+    scores[partie_numero] = {"score": point, "temps": temps}
+    return scores
 
 def e_deplacement(x,y):
   if pyxel.btn(pyxel.KEY_RIGHT):
@@ -123,11 +129,12 @@ def difficulté (vitesse,compteur):
   
 
 def update () :
-  global e_x ,e_y ,tir_liste,ennemi_liste,vie,point,menu,explosion_liste,compteur,vitesse,temps
+  global e_x ,e_y ,tir_liste,ennemi_liste,vie,point,menu,explosion_liste,compteur,vitesse,temps,scores,partie_numero,score_ennregistre
   if menu==0 :
     menu=debut(menu)
     vie=vie_normal(vie)
     temps=0
+    score_ennregistre=False
    
   else :
     if vie>0:
@@ -145,6 +152,11 @@ def update () :
     else :
       menu,vie=retourne_debut(menu,vie)
       point=point_0(point)
+    if vie <= 0 and menu != 0 and not score_ennregistre:
+      global partie_numero
+      scores = enregistrer_score(scores, partie_numero, point, temps)
+      partie_numero += 1
+      score_ennregistre = True
       
 
     
@@ -177,12 +189,18 @@ def draw ():
       for explosion in explosion_liste:
         pyxel.circ(explosion[0],explosion[1],2*(explosion[2]//4), 8+explosion[2]%3)
     else :
-        pyxel.text(20,50,"Retourne au lobby",10)
-        pyxel.text(20,60,"Retourner lobby Tab",10)
+        pyxel.text(20,20,"Retourne au lobby",10)
+        pyxel.text(20,30,"Retourner lobby Tab",10)
+        pyxel.rect(8, 50, 115, 70, 1) 
+        pyxel.text(15, 54, "Scores :", 7)
+        y_offset = 63
+        for partie, data in scores.items():
+          pyxel.text(13, y_offset, f"Partie {partie}: Score {data['score']}, Temps {data['temps']}s", 7)
+          y_offset += 10
 
 
  
-
+#le temps ne se réinitialse pas, il faut encore que je le fasse
 
 
 
