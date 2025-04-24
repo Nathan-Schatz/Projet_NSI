@@ -33,12 +33,12 @@ header h1 {
 .Jouer_list {
     margin: 3em;
     list-style-image: url("../Ressources/point.png");
-    padding-inline: 20%;
+    padding-inline: 25%;
 }
 
 .div_Jouer {
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 30%;
+    margin-right: 30%;
 }
 
 /*Régles*/
