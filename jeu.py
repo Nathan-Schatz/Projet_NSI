@@ -112,7 +112,7 @@ def vie_normal (vie):
 
 def difficulté (vitesse,compteur):
   if compteur ==10:
-    vitesse+=0.5
+    vitesse+=0.2
     compteur=0
   return(vitesse,compteur)
 
