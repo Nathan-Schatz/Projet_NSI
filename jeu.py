@@ -16,12 +16,12 @@ compteur=0
 pyxel.load("Ressources/vaisseau.pyxres")
 
 def debut (menu):
-  if pyxel.btn(pyxel.KEY_TAB):
+  if pyxel.btn(pyxel.KEY_RETURN):
     menu+=1
   return(menu)
 
 def retourne_debut (menu,vie):
-  if pyxel.btn(pyxel.KEY_RETURN):
+  if pyxel.btn(pyxel.KEY_TAB):
     menu=0
     vie=3
   return(menu,vie)
@@ -152,8 +152,8 @@ def draw ():
   if menu==0:
     pyxel.text(46,10,"neon nexus",10)
     pyxel.text(47,10,"neon nexus",7)
-    pyxel.text(5,20,"Pour jouer appuie sur TAB",10)
-    pyxel.text(5,30,"Sinon appuei sur Echap",10)
+    pyxel.text(5,20,"Pour jouer appuie sur Entree",10)
+    pyxel.text(5,30,"Sinon appuie sur Echap",10)
   
   
   else:
@@ -165,14 +165,14 @@ def draw ():
       for position in ennemi_liste :
         pyxel.blt(position[0],position[1],2,20,7,7, 7)
       
-      pyxel.text(10,10,"Vie"+str(vie),10)
+      pyxel.text(10,10,"Vie "+str(vie),10)
       
-      pyxel.text(10,15 ,"point"+str(point),10)
+      pyxel.text(10,15 ,"point "+str(point),10)
       for explosion in explosion_liste:
         pyxel.circ(explosion[0],explosion[1],2*(explosion[2]//4), 8+explosion[2]%3)
     else :
-        pyxel.text(20,50,"Retourne au lobby ",10)
-        pyxel.text(20,60,"retourner lobby entre ",10)
+        pyxel.text(20,50,"Retourne au lobby",10)
+        pyxel.text(20,60,"Retourner lobby Tab",10)
 
 
  
