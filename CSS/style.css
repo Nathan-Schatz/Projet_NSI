@@ -5,6 +5,7 @@
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     background-color: #333;
+    text-align: center;
 }
 
 
@@ -19,12 +20,56 @@ header h1 {
     margin: 0;
 }
 
+/* index */
+.text_index {
+    font-size: 17px;
+}
+
+.txt1_index {
+    font-weight: bold;
+}
+
+/* Jouer */
 .h3_Jouer {
     margin-left: 1em;
+    margin-top: 2em;
 }
 
 .text_Jouer {
     margin-left: 1.5em;
+    font-size: 17px;
+}
+
+.Jouer_list {
+    margin-left: 3em;
+    margin-right: 3em;
+    list-style-image: url("../Ressources/point.png");
+    padding-inline: 25%;
+    font-size: large;
+}
+
+.div_Jouer {
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+/*Régles*/
+.Regles_list {
+    margin: 3em;
+    list-style-image: url("../Ressources/point.png");
+    padding-inline: 20%;
+    font-size: large;
+}
+
+.div_Regles {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+/* Telecharger */
+
+.text_Tel {
+    font-size: 17px;
 }
 
 /*Création du bouton de navigation*/
@@ -102,6 +147,10 @@ footer {
 
 footer.shifted {
     margin-left: 200px;
+}
+
+.a {
+    right: 2em;
 }
 
 footer p {
