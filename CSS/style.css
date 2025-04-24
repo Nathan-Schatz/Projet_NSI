@@ -21,7 +21,6 @@ header h1 {
 }
 
 /* index */
-
 .text_index {
     font-size: 17px;
 }
@@ -144,6 +143,10 @@ footer {
 
 footer.shifted {
     margin-left: 200px;
+}
+
+.a {
+    right: 2em;
 }
 
 footer p {
