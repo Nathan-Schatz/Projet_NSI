@@ -33,14 +33,14 @@ header h1 {
 .Jouer_list {
     margin: 3em;
     list-style-image: url("../Ressources/point.png");
-    padding-inline-start: 1ch;
+    padding-inline: 40%;
 }
 
 /*Régles*/
 .Regles_list {
     margin: 3em;
     list-style-image: url("../Ressources/point.png");
-    padding-inline-start: 1ch;
+    padding-inline: 40%;
 }
 
 /*Création du bouton de navigation*/
