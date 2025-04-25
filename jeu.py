@@ -18,6 +18,7 @@ temps=0
 scores={}
 partie_numero=1
 score_ennregistre= False
+temps=0
 
 pyxel.load("Ressources/vaisseau.pyxres")
 
@@ -26,11 +27,12 @@ def debut (menu):
     menu+=1
   return(menu)
 
-def retourne_debut (menu,vie):
+def retourne_debut (menu,vie,temps):
   if pyxel.btn(pyxel.KEY_TAB):
     menu=0
     vie=3
-  return(menu,vie)
+    temps=0
+  return(menu,vie,temps)
 
 def enregistrer_score(scores, partie_numero, point, temps):
     scores[partie_numero] = {"score": point, "temps": temps}
@@ -110,9 +112,13 @@ def point_0(point):
   point=0
   return(point)
 
-def vie_normal (vie):
-  vie=3
-  return(vie)
+def temp(temps):
+  if (pyxel.frame_count % 30 == 0):
+    temps+=1
+  return(temps)
+  
+
+
 
 def difficulté (vitesse,compteur):
   if compteur ==10:
@@ -161,7 +167,6 @@ def update () :
   global e_x ,e_y ,tir_liste,ennemi_liste,vie,point,menu,explosion_liste,compteur,vitesse,temps,scores,partie_numero,score_ennregistre,boost_liste,boost_explosion_liste
   if menu==0 :
     menu=debut(menu)
-    vie=vie_normal(vie)
     temps=0
     score_ennregistre=False
    
@@ -180,8 +185,9 @@ def update () :
       annimation()
       annimation_boost()
       vitesse,compteur=difficulté(vitesse,compteur)
+      temps=temp(temps)
     else :
-      menu,vie=retourne_debut(menu,vie)
+      menu,vie,temps=retourne_debut(menu,vie,temps)
       point=point_0(point)
     if vie <= 0 and menu != 0 and not score_ennregistre:
       global partie_numero
