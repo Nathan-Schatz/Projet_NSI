@@ -247,15 +247,10 @@ def draw ():
         pyxel.text(15, 54, "Scores :", 7)
         y_offset = 63
         for partie, data in scores.items():
-          pyxel.text(13, y_offset, f"Partie {partie}: Score {data['score']}, Temps {data['temps']}s", 7)
+          pyxel.text(11, y_offset, f"Partie {partie}: Score {data['score']}, Temps {data['temps']}s", 7)
           y_offset += 10
 
-
- 
-#le temps ne se réinitialse pas, il faut encore que je le fasse
-
-
-
+          
 pyxel.run(update,draw)
 
 # Pour run le truc que tu voulais c'est la commande : pyxel edit sprites.pyxres 
