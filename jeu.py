@@ -121,7 +121,7 @@ def difficulté (vitesse,compteur):
   return(vitesse,compteur)
 
 def boost_création(boost_liste):
-  if (pyxel.frame_count % random.randint(100,1000) == 0):
+  if (pyxel.frame_count % random.randint(100,260) == 0):
     boost_liste.append([random.randint(4,120),0])
   return(boost_liste)
 
