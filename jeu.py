@@ -121,7 +121,7 @@ def difficulté (vitesse,compteur):
   return(vitesse,compteur)
 
 def boost_création(boost_liste):
-  if (pyxel.frame_count % random.randint(100,260) == 0):
+  if (pyxel.frame_count % random.randint(250,1000) == 0):
     boost_liste.append([random.randint(4,120),0])
   return(boost_liste)
 
@@ -174,8 +174,11 @@ def update () :
       ennemi_liste=ennemi_mouvement(ennemi_liste)
       point,compteur=suppresion_ennemi(point,compteur)
       vie=vaisseau_suppresion(vie)
-      
+      vie=boost_supression(vie)
+      boost_liste=boost_mouvement(boost_liste)
+      boost_liste=boost_création(boost_liste)
       annimation()
+      annimation_boost()
       vitesse,compteur=difficulté(vitesse,compteur)
     else :
       menu,vie=retourne_debut(menu,vie)
