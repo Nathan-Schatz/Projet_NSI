@@ -87,6 +87,7 @@ def suppresion_ennemi (point,compteur):
           creation_annimation(position[0],position[1])
           point+=1
           compteur+=1
+
     return(point,compteur)
 
 def vaisseau_suppresion (vie):
@@ -95,6 +96,9 @@ def vaisseau_suppresion (vie):
       ennemi_liste.remove(position)
       creation_annimation(e_x,e_y)
       vie-=1
+    elif position[1]>= 128:
+          vie-=1
+          ennemi_liste.remove(position)
   return (vie)
 
 
@@ -121,7 +125,7 @@ def temp(temps):
 
 
 def difficulté (vitesse,compteur):
-  if compteur ==10:
+  if compteur ==15:
     vitesse+=0.2
     compteur=0
   return(vitesse,compteur)
