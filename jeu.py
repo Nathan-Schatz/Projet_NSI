@@ -27,12 +27,19 @@ def debut (menu):
     menu+=1
   return(menu)
 
-def retourne_debut (menu,vie,temps):
+def retourne_debut (menu,vie,temps,e_x,e_y,tir_liste,ennemi_liste,boost_liste,boost_explosion_liste,explosion_liste):
   if pyxel.btn(pyxel.KEY_TAB):
     menu=0
     vie=3
     temps=0
-  return(menu,vie,temps)
+    e_x=60
+    e_y=60
+    tir_liste =[]
+    ennemi_liste=[]
+    boost_liste=[]
+    explosion_liste=[]
+    boost_explosion_liste=[]
+  return(menu,vie,temps,e_x,e_y,tir_liste,ennemi_liste,boost_liste,boost_explosion_liste,explosion_liste)
 
 def enregistrer_score(scores, partie_numero, point, temps):
     scores[partie_numero] = {"score": point, "temps": temps}
@@ -191,7 +198,7 @@ def update () :
       vitesse,compteur=difficulté(vitesse,compteur)
       temps=temp(temps)
     else :
-      menu,vie,temps=retourne_debut(menu,vie,temps)
+      menu,vie,temps,e_x,e_y,tir_liste,ennemi_liste,boost_liste,boost_explosion_liste,explosion_liste=retourne_debut(menu,vie,temps,e_x,e_y,tir_liste,ennemi_liste,boost_liste,boost_explosion_liste,explosion_liste)
       point=point_0(point)
     if vie <= 0 and menu != 0 and not score_ennregistre:
       global partie_numero
