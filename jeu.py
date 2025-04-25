@@ -160,7 +160,6 @@ def annimation_boost ():
 def update () :
   global e_x ,e_y ,tir_liste,ennemi_liste,vie,point,menu,explosion_liste,compteur,vitesse,temps,scores,partie_numero,score_ennregistre,boost_liste,boost_explosion_liste
   if menu==0 :
-  if menu==0 :
     menu=debut(menu)
     vie=vie_normal(vie)
     temps=0
