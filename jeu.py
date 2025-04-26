@@ -166,13 +166,6 @@ def annimation_boost ():
     if explosion_boost[2]==12:
       boost_explosion_liste.remove(explosion_boost)
 
-    
-
-
-
-
-  
-  
 
 def update () :
   global e_x ,e_y ,tir_liste,ennemi_liste,vie,point,menu,explosion_liste,compteur,vitesse,temps,scores,partie_numero,score_ennregistre,boost_liste,boost_explosion_liste
@@ -224,18 +217,13 @@ def draw ():
       pyxel.blt(e_x,e_y,0,16,1,15,15)
       for tir in tir_liste:
         pyxel.blt(tir[0],tir[1],1,20,6,6,6)
-
       for position in ennemi_liste :
         pyxel.blt(position[0],position[1],2,20,7,7, 7)
       for place in boost_liste :
         pyxel.rect(place[0],place[1],4,4,10)
-      
       pyxel.text(10,10,"Vie "+str(vie),10)
-
       pyxel.text(10,16 ,"point "+str(point),10)
-
       pyxel.text(10,3,"Temps"+str(temps) + "s", 10)
-
       for explosion in explosion_liste:
         pyxel.circ(explosion[0],explosion[1],2*(explosion[2]//4), 8+explosion[2]%3)
       for explosion_boost in boost_explosion_liste :
