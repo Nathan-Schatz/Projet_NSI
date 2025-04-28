@@ -214,7 +214,7 @@ def draw ():
       for position in ennemi_liste :
         pyxel.blt(position[0],position[1],2,20,7,7, 7)
       for place in boost_liste :
-        pyxel.rect(place[0],place[1],4,4,10)
+        pyxel.blt(place[0], place[1],0,3,20,7,7)
       pyxel.text(10,10,"Vie "+str(vie),10)
       pyxel.text(10,16 ,"point "+str(point),10)
       pyxel.text(10,3,"Temps "+str(temps) + " s", 10)
