@@ -27,7 +27,7 @@ def debut (menu):
     menu+=1
   return(menu)
 
-def retourne_debut (menu,vie,temps,e_x,e_y,tir_liste,ennemi_liste,boost_liste,boost_explosion_liste,explosion_liste):
+def retourne_debut (menu,vie,temps,e_x,e_y,tir_liste,ennemi_liste,boost_liste,boost_explosion_liste,explosion_liste,point):
   if pyxel.btn(pyxel.KEY_TAB):
     menu=0
     vie=3
@@ -39,7 +39,8 @@ def retourne_debut (menu,vie,temps,e_x,e_y,tir_liste,ennemi_liste,boost_liste,bo
     boost_liste=[]
     explosion_liste=[]
     boost_explosion_liste=[]
-  return(menu,vie,temps,e_x,e_y,tir_liste,ennemi_liste,boost_liste,boost_explosion_liste,explosion_liste)
+    point=0
+  return(menu,vie,temps,e_x,e_y,tir_liste,ennemi_liste,boost_liste,boost_explosion_liste,explosion_liste,point)
 
 def enregistrer_score(scores, partie_numero, point, temps):
     scores[partie_numero] = {"score": point, "temps": temps}
@@ -77,12 +78,13 @@ def ennemi_creation (ennemi_liste):
     ennemi_liste.append([random.randint(4,120),0])
   return (ennemi_liste)
 
-def ennemi_mouvement (ennemi_liste) :
+def ennemi_mouvement (ennemi_liste,vie) :
   for position in ennemi_liste:
     position[1] +=vitesse
     if position[1] >128:
       ennemi_liste.remove(position)
-  return (ennemi_liste)
+      vie-=1
+  return (ennemi_liste,vie)
 
 
 def suppresion_ennemi (point,compteur):
@@ -103,9 +105,6 @@ def vaisseau_suppresion (vie):
       ennemi_liste.remove(position)
       creation_annimation(e_x,e_y)
       vie-=1
-    elif position[1]>= 128:
-          vie-=1
-          ennemi_liste.remove(position)
   return (vie)
 
 
@@ -118,10 +117,6 @@ def annimation ():
     explosion[2]+=2
     if explosion[2]==12:
       explosion_liste.remove(explosion)
-
-def point_0(point):
-  point=0
-  return(point)
 
 def temp(temps):
   if (pyxel.frame_count % 30 == 0):
@@ -180,7 +175,7 @@ def update () :
       tir_liste=tirs_creation(e_x,e_y,tir_liste)
       tir_liste=tir_deplacement(tir_liste)
       ennemi_liste=ennemi_creation(ennemi_liste)
-      ennemi_liste=ennemi_mouvement(ennemi_liste)
+      ennemi_liste,vie=ennemi_mouvement(ennemi_liste,vie)
       point,compteur=suppresion_ennemi(point,compteur)
       vie=vaisseau_suppresion(vie)
       vie=boost_supression(vie)
@@ -191,8 +186,7 @@ def update () :
       vitesse,compteur=difficulté(vitesse,compteur)
       temps=temp(temps)
     else :
-      menu,vie,temps,e_x,e_y,tir_liste,ennemi_liste,boost_liste,boost_explosion_liste,explosion_liste=retourne_debut(menu,vie,temps,e_x,e_y,tir_liste,ennemi_liste,boost_liste,boost_explosion_liste,explosion_liste)
-      point=point_0(point)
+      menu,vie,temps,e_x,e_y,tir_liste,ennemi_liste,boost_liste,boost_explosion_liste,explosion_liste,point=retourne_debut(menu,vie,temps,e_x,e_y,tir_liste,ennemi_liste,boost_liste,boost_explosion_liste,explosion_liste,point)
     if vie <= 0 and menu != 0 and not score_ennregistre:
       global partie_numero
       scores = enregistrer_score(scores, partie_numero, point, temps)
@@ -223,7 +217,7 @@ def draw ():
         pyxel.rect(place[0],place[1],4,4,10)
       pyxel.text(10,10,"Vie "+str(vie),10)
       pyxel.text(10,16 ,"point "+str(point),10)
-      pyxel.text(10,3,"Temps"+str(temps) + "s", 10)
+      pyxel.text(10,3,"Temps "+str(temps) + " s", 10)
       for explosion in explosion_liste:
         pyxel.circ(explosion[0],explosion[1],2*(explosion[2]//4), 8+explosion[2]%3)
       for explosion_boost in boost_explosion_liste :
