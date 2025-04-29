@@ -67,7 +67,6 @@ header h1 {
 }
 
 /* Telecharger */
-
 .text_Tel {
     font-size: 17px;
 }
@@ -147,13 +146,6 @@ footer {
 
 footer.shifted {
     margin-left: 200px;
-}
-
-
-/*il faut encore mettre ca en bien et en bas a droite*/
-.a {
-    text-decoration: none;
-    font-size: 25px;
 }
 
 footer p {
