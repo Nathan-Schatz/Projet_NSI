@@ -40,6 +40,7 @@ def retourne_debut (menu,vie,temps,e_x,e_y,tir_liste,ennemi_liste,boost_liste,bo
     explosion_liste=[]
     boost_explosion_liste=[]
     point=0
+  return(menu,vie,temps,e_x,e_y,tir_liste,ennemi_liste,boost_liste,boost_explosion_liste,explosion_liste,point)
   # fonction qui permert d'enregistrer le score
 def enregistrer_score(scores, partie_numero, point, temps):
     scores[partie_numero] = {"score": point, "temps": temps}
