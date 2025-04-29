@@ -149,8 +149,11 @@ footer.shifted {
     margin-left: 200px;
 }
 
+
+/*il faut encore mettre ca en bien et en bas a droite*/
 .a {
-    right: 2em;
+    text-decoration: none;
+    font-size: 25px;
 }
 
 footer p {
