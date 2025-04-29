@@ -1,7 +1,7 @@
 import pyxel , random
 
 pyxel.init (128,128,"neon nexus",quit_key=pyxel.KEY_ESCAPE)
-
+#Ina;alisation
 e_x=60
 e_y=60
 tir_liste =[]
@@ -19,14 +19,14 @@ scores={}
 partie_numero=1
 score_ennregistre= False
 temps=0
-
+#import des images 
 pyxel.load("Ressources/vaisseau.pyxres")
-
+# fonction de demarra 
 def debut (menu):
   if pyxel.btn(pyxel.KEY_RETURN):
     menu+=1
   return(menu)
-
+#fonction qui permet le retour au debut 
 def retourne_debut (menu,vie,temps,e_x,e_y,tir_liste,ennemi_liste,boost_liste,boost_explosion_liste,explosion_liste,point):
   if pyxel.btn(pyxel.KEY_TAB):
     menu=0
@@ -40,12 +40,11 @@ def retourne_debut (menu,vie,temps,e_x,e_y,tir_liste,ennemi_liste,boost_liste,bo
     explosion_liste=[]
     boost_explosion_liste=[]
     point=0
-  return(menu,vie,temps,e_x,e_y,tir_liste,ennemi_liste,boost_liste,boost_explosion_liste,explosion_liste,point)
-
+  # fonction qui permert d'enregistrer le score
 def enregistrer_score(scores, partie_numero, point, temps):
     scores[partie_numero] = {"score": point, "temps": temps}
     return scores
-
+#fonction qui permert le déplacment du vaisseau
 def e_deplacement(x,y):
   if pyxel.btn(pyxel.KEY_RIGHT):
     if (x<120):
@@ -60,24 +59,24 @@ def e_deplacement(x,y):
     if (y>0):
       y=y-3
   return x,y
-
+# fonction qui permet la création des tirs
 def tirs_creation( x , y,tir_liste ) : 
   if pyxel.btnr(pyxel.KEY_SPACE):
     tir_liste.append([x+5,y-4])
   return tir_liste
-
+# fonction qui permet le deplacement des tirs
 def tir_deplacement (tir_liste) :
   for tir in tir_liste :
     tir[1] -=1
     if tir [1] <- 8:
       tir_liste.remove(tir) 
   return(tir_liste)
-  
+# fonction qui permet la création des ennemis
 def ennemi_creation (ennemi_liste):
   if (pyxel.frame_count % 50 == 0):
     ennemi_liste.append([random.randint(4,120),0])
   return (ennemi_liste)
-
+# fonction qui permet le mouvement des ennemis
 def ennemi_mouvement (ennemi_liste,vie) :
   for position in ennemi_liste:
     position[1] +=vitesse
@@ -86,7 +85,7 @@ def ennemi_mouvement (ennemi_liste,vie) :
       vie-=1
   return (ennemi_liste,vie)
 
-
+# fonction qui permet la suppression des ennemis 
 def suppresion_ennemi (point,compteur):
     for position in ennemi_liste:
       for tir in tir_liste :
@@ -98,7 +97,7 @@ def suppresion_ennemi (point,compteur):
           compteur+=1
 
     return(point,compteur)
-
+# fonction qui permet la suppression des vaisseau
 def vaisseau_suppresion (vie):
   for position in ennemi_liste :
     if position[0]-4 <= e_x+4 and position[1] <= e_y+4 and position[0]+4 >= e_x-4 and position[1]+4 >= e_y:
@@ -108,16 +107,16 @@ def vaisseau_suppresion (vie):
   return (vie)
 
 
-
+# fonction qui permet la cration des annimation lorque les tirs touches les ennemis
 def creation_annimation (x,y):
   explosion_liste.append([x,y,0])
-
+# fonction qui permet l'annioamtion lors du contact entre led tirs et les ennemies 
 def annimation ():
   for explosion in explosion_liste :
     explosion[2]+=2
     if explosion[2]==12:
       explosion_liste.remove(explosion)
-
+# fonction qui permet la contabilisation du temps
 def temp(temps):
   if (pyxel.frame_count % 30 == 0):
     temps+=1
@@ -125,25 +124,25 @@ def temp(temps):
   
 
 
-
+# fonction qui permet la dificulté
 def difficulté (vitesse,compteur):
   if compteur ==15:
     vitesse+=0.2
     compteur=0
   return(vitesse,compteur)
-
+# fonction qui permet la creation des boosts
 def boost_création(boost_liste):
   if (pyxel.frame_count % random.randint(250,1000) == 0):
     boost_liste.append([random.randint(4,120),0])
   return(boost_liste)
-
+# fonction qui permet le mouvement des boosts
 def boost_mouvement (boost_liste) :
   for place in boost_liste:
     place[1] +=1
     if place[1] >128:
       boost_liste.remove(place)
   return (boost_liste)
-
+# fonction qui permet la suppresion des mouvements
 def boost_supression (vie):
   for place in boost_liste :
     if place[0]-4 <= e_x+4 and place[1] <= e_y+4 and place[0]+4 >= e_x-4 and place[1]+4 >= e_y:
@@ -151,17 +150,17 @@ def boost_supression (vie):
       creation_annimation_boost(place[0],place[1])
       vie+=1
   return (vie)
-
+# fonction qui permet les annimations lorque le vaisseau rentre en contact avec les boosts
 def creation_annimation_boost (x,y):
   boost_explosion_liste.append([x,y,0])
-
+# fonction qui permet les annimations lors du contact entre les boost et le vaisseau
 def annimation_boost ():
   for explosion_boost in boost_explosion_liste :
     explosion_boost[2]+=2
     if explosion_boost[2]==12:
       boost_explosion_liste.remove(explosion_boost)
 
-
+ # fonction qui permet l'appelle des fonctions
 def update () :
   global e_x ,e_y ,tir_liste,ennemi_liste,vie,point,menu,explosion_liste,compteur,vitesse,temps,scores,partie_numero,score_ennregistre,boost_liste,boost_explosion_liste
   if menu==0 :
@@ -195,17 +194,18 @@ def update () :
       
 
     
-
+# fonction qui permet de dessiner 
 
 def draw ():
   pyxel.cls(0)
+  #lors du menu de demarage
   if menu==0:
     pyxel.text(46,10,"neon nexus",10)
     pyxel.text(47,10,"neon nexus",7)
     pyxel.text(5,20,"Pour jouer appuie sur Entree",10)
     pyxel.text(5,30,"Sinon appuie sur Echap",10)
   
-  
+  # lorsque le joueur possede encore au moins une vie
   else:
     if vie>0:
       pyxel.blt(e_x,e_y,0,16,1,15,15)
@@ -222,6 +222,7 @@ def draw ():
         pyxel.circ(explosion[0],explosion[1],2*(explosion[2]//4), 8+explosion[2]%3)
       for explosion_boost in boost_explosion_liste :
         pyxel.circ(explosion_boost[0],explosion_boost[1],2*(explosion_boost[2]//4), 11+explosion_boost[2]%2)
+    #lors du menu de fin
     else :
         pyxel.text(20,20,"Retourne au lobby",10)
         pyxel.text(20,30,"Retourner lobby Tab",10)
@@ -232,7 +233,7 @@ def draw ():
           pyxel.text(11, y_offset, f"Partie {partie}: Score {data['score']}, Temps {data['temps']}s", 7)
           y_offset += 10
 
-          
+   # fonction qui permet de lancer le code 
 pyxel.run(update,draw)
 
 # Pour run le truc que tu voulais c'est la commande : pyxel edit sprites.pyxres 
