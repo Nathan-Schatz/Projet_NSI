@@ -1,7 +1,7 @@
 import pyxel , random
 
 pyxel.init (128,128,"neon nexus",quit_key=pyxel.KEY_ESCAPE)
-#Ina;alisation
+#Initialisation
 e_x=60
 e_y=60
 tir_liste =[]
@@ -19,14 +19,14 @@ scores={}
 partie_numero=1
 score_ennregistre= False
 temps=0
-#import des images 
+#Import des images 
 pyxel.load("Ressources/vaisseau.pyxres")
-# fonction de demarra 
+# fonction de démarrage
 def debut (menu):
   if pyxel.btn(pyxel.KEY_RETURN):
     menu+=1
   return(menu)
-#fonction qui permet le retour au debut 
+#fonction qui permet le retour au début 
 def retourne_debut (menu,vie,temps,e_x,e_y,tir_liste,ennemi_liste,boost_liste,boost_explosion_liste,explosion_liste,point):
   if pyxel.btn(pyxel.KEY_TAB):
     menu=0
@@ -65,7 +65,7 @@ def tirs_creation( x , y,tir_liste ) :
   if pyxel.btnr(pyxel.KEY_SPACE):
     tir_liste.append([x+5,y-4])
   return tir_liste
-# fonction qui permet le deplacement des tirs
+# fonction qui permet le déplacement des tirs
 def tir_deplacement (tir_liste) :
   for tir in tir_liste :
     tir[1] -=1
@@ -98,7 +98,7 @@ def suppresion_ennemi (point,compteur):
           compteur+=1
 
     return(point,compteur)
-# fonction qui permet la suppression des vaisseau
+# fonction qui permet la suppression des vaisseaux
 def vaisseau_suppresion (vie):
   for position in ennemi_liste :
     if position[0]-4 <= e_x+4 and position[1] <= e_y+4 and position[0]+4 >= e_x-4 and position[1]+4 >= e_y:
@@ -108,16 +108,16 @@ def vaisseau_suppresion (vie):
   return (vie)
 
 
-# fonction qui permet la cration des annimation lorque les tirs touches les ennemis
+# fonction qui permet la création des annimation lorsque les tirs touchent les ennemis
 def creation_annimation (x,y):
   explosion_liste.append([x,y,0])
-# fonction qui permet l'annioamtion lors du contact entre led tirs et les ennemies 
+# fonction qui permet l'annimation lors du contact entre les tirs et les ennemis
 def annimation ():
   for explosion in explosion_liste :
     explosion[2]+=2
     if explosion[2]==12:
       explosion_liste.remove(explosion)
-# fonction qui permet la contabilisation du temps
+# fonction qui permet de créer le temps en secondes
 def temp(temps):
   if (pyxel.frame_count % 30 == 0):
     temps+=1
@@ -131,7 +131,7 @@ def difficulté (vitesse,compteur):
     vitesse+=0.2
     compteur=0
   return(vitesse,compteur)
-# fonction qui permet la creation des boosts
+# fonction qui permet la création des boosts
 def boost_création(boost_liste):
   if (pyxel.frame_count % random.randint(250,1000) == 0):
     boost_liste.append([random.randint(4,120),0])
@@ -151,7 +151,7 @@ def boost_supression (vie):
       creation_annimation_boost(place[0],place[1])
       vie+=1
   return (vie)
-# fonction qui permet les annimations lorque le vaisseau rentre en contact avec les boosts
+# fonction qui permet les annimations lorsque le vaisseau rentre en contact avec les boosts
 def creation_annimation_boost (x,y):
   boost_explosion_liste.append([x,y,0])
 # fonction qui permet les annimations lors du contact entre les boost et le vaisseau
@@ -161,7 +161,7 @@ def annimation_boost ():
     if explosion_boost[2]==12:
       boost_explosion_liste.remove(explosion_boost)
 
- # fonction qui permet l'appelle des fonctions
+ # fonction qui appelle les autres fonctions
 def update () :
   global e_x ,e_y ,tir_liste,ennemi_liste,vie,point,menu,explosion_liste,compteur,vitesse,temps,scores,partie_numero,score_ennregistre,boost_liste,boost_explosion_liste
   if menu==0 :
@@ -192,21 +192,18 @@ def update () :
       scores = enregistrer_score(scores, partie_numero, point, temps)
       partie_numero += 1
       score_ennregistre = True
-      
-
-    
 # fonction qui permet de dessiner 
 
 def draw ():
   pyxel.cls(0)
-  #lors du menu de demarage
+  # Menu de démarage
   if menu==0:
     pyxel.text(46,10,"neon nexus",10)
     pyxel.text(47,10,"neon nexus",7)
     pyxel.text(5,20,"Pour jouer appuie sur Entree",10)
     pyxel.text(5,30,"Sinon appuie sur Echap",10)
   
-  # lorsque le joueur possede encore au moins une vie
+  # lorsque le joueur possède encore au moins une vie
   else:
     if vie>0:
       pyxel.blt(e_x,e_y,0,16,1,15,15)
