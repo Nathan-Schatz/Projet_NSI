@@ -234,7 +234,4 @@ def draw ():
    # fonction qui permet de lancer le code 
 pyxel.run(update,draw)
 
-# Pour run le truc que tu voulais c'est la commande : pyxel edit sprites.pyxres 
-#ca c'est pour mac
-#pour windows
-#python -m pyxel edit Ressources/vaisseau.pyxres
+#Modifier les images (python -m pyxel edit Ressources/vaisseau.pyxres)
